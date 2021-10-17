@@ -7,11 +7,7 @@ import numpy as np
 #return - shape(n)
 
 def transE_l2(head, rel, tail, gamma=12.0):
-    print(head.shape)
-    print(rel.shape)
-    print(tail.shape)
     score = head + rel - tail
-    print(score.shape)
     return gamma - th.norm(score, p=2, dim=-1) 
 
 def transR(head,rel,tail,proj,gamma=12.0):   
