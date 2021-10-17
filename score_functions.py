@@ -14,7 +14,7 @@ def transR(head,rel,tail,proj,rel_idx,gamma=12.0):
     proj = proj.reshape(-1, head.shape[1], rel.shape[0])[rel_idx]
     head_r = th.einsum('ab,bc->ac', head, proj)
     tail_r = th.einsum('b,bc->c', th.tensor(tail), proj)
-    score = head_r + rel - tail_r #25,40
+    score = head_r + rel - tail_r 
     return gamma - th.norm(score, p=1, dim=-1) 
 
 def complEx(head,rel,tail,gamma=12.0):
@@ -30,7 +30,7 @@ def complEx(head,rel,tail,gamma=12.0):
     return th.sum(score, -1)
 
 def rotatE(head,rel,tail, emb_init=.5, gamma=12.0):
-    #self.emb_init = [(gamma + self.eps) / hidden_dim] -> [12 + 2 / 40]
+    #self.emb_init = [(gamma + self.eps) / hidden_dim] -> [12 + 2 / e]
     re_head, im_head = th.chunk(head, 2, dim=-1)
     re_tail, im_tail = th.chunk(th.tensor(tail), 2, dim=-1)
     
