@@ -1,4 +1,6 @@
-import torch.nn.functional as fn
+#import torch.nn.functional as fn
+import torch as th
+import numpy as np
 #head - shape(n, e)
 #rel - shape(r) *r is usually set to e
 #tail - shape(e)
